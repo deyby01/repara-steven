@@ -1,0 +1,56 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}{{ producto.nombre }} - ReparaSteven{% endblock %}
+
+{% block content %}
+<div class="product-detail-page section-padding">
+    <div class="container">
+        <div class="product-detail-grid">
+            <div class="product-detail-images">
+                {% if producto.imagen %}
+                    <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" class="main-product-image">
+                {% else %}
+                    <div class="image-placeholder-xl"><span>Imagen no disponible</span></div>
+                {% endif %}
+                {# Aquí podría ir una galería de imágenes más pequeñas si tuvieras múltiples imágenes por producto #}
+            </div>
+
+            <div class="product-detail-info">
+                <h1 class="product-title">{{ producto.nombre }}</h1>
+                <p class="product-condition-detail"><strong>Condición:</strong> {{ producto.get_condicion_display }}</p>
+                <p class="product-price-detail">${{ producto.precio|floatformat:0 }} CLP</p>
+
+                <div class="product-description">
+                    <h4>Descripción del Equipo:</h4>
+                    <p>{{ producto.descripcion|linebreaksbr }}</p> {# linebreaksbr para respetar saltos de línea #}
+                </div>
+
+                {# Especificaciones (si las tienes en el modelo, podrías mostrarlas aquí) #}
+                {# <div class="product-specs">
+                    <h4>Especificaciones Técnicas:</h4>
+                    <ul>
+                        <li><strong>Modelo:</strong> XYZ-123</li>
+                        <li><strong>Almacenamiento:</strong> 256GB</li>
+                         ... más especificaciones ...
+                    </ul>
+                </div> #}
+
+                <div class="cta-buttons-detail">
+                    {# Basado en tu decisión de que el cliente contacte a Steven #}
+                    <a href="https://wa.me/56950594710?text=Hola%20Steven,%20me%20interesa%20el%20equipo%20{{ producto.nombre|urlencode }}" 
+                       target="_blank" class="btn btn-primary btn-large">
+                       Consultar por WhatsApp
+                    </a>
+                    {# Reemplaza 569XXXXXXXX con el número real de WhatsApp de Steven #}
+                    {# También podrías tener un botón a un formulario de contacto #}
+                    {# <a href="#" class="btn btn-secondary btn-large">Otras Consultas</a> #}
+                </div>
+                 <div class="back-to-store-link">
+                    <a href="{% url 'tienda:lista_equipos' %}">&larr; Volver a la tienda</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

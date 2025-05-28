@@ -1,0 +1,1224 @@
+/* static/css/style.css */
+
+/* Reset básico o Normalize (puedes buscar "normalize.css" o "meyerweb reset" para algo más completo) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Open Sans', sans-serif; /* Fuente para cuerpo de texto */
+    line-height: 1.6;
+    color: #333333; /* Gris oscuro para texto sobre fondo blanco */
+    background-color: #FFFFFF; /* Fondo blanco por defecto */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Fuente para encabezados */
+    color: #111111; /* Negro para encabezados sobre fondo blanco */
+    margin-bottom: 0.75em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    text-decoration: none;
+    /* color: (definir según contexto) */
+}
+
+/* Un contenedor general para centrar contenido y limitar ancho */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px; /* Espacio para que el contenido no pegue a los bordes */
+    padding-right: 15px;
+}
+
+/* --- Header Styles --- */
+.site-header {
+    background-color: #111111; /* Negro */
+    padding: 15px 0; /* Espacio vertical interno */
+    color: #FFFFFF; /* Texto blanco por defecto dentro del header */
+    position: sticky; /* Para que se quede fijo arriba al hacer scroll (opcional) */
+    top: 0;
+    z-index: 1000; /* Para que esté por encima de otros contenidos */
+    width: 100%;
+}
+
+.header-container {
+    display: flex; /* Alinea logo y navegación en la misma línea */
+    justify-content: space-between; /* Empuja el logo a la izq y nav a la der */
+    align-items: center; /* Centra verticalmente los items */
+}
+
+.site-header .logo img {
+    height: 65px; /* Ajusta según el tamaño de tu logo */
+    width: auto; /* Mantiene la proporción */
+    display: block; /* Evita espacio extra debajo de la imagen */
+}
+
+.main-navigation ul {
+    list-style: none; /* Quita los puntos de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Alinea los items de menú horizontalmente */
+}
+
+.main-navigation ul li {
+    margin-left: 25px; /* Espacio entre items del menú */
+}
+
+.main-navigation ul li a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500; /* SemiBold o Medium */
+    font-size: 16px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding-bottom: 5px; /* Espacio para el borde inferior en hover */
+    transition: color 0.3s ease, border-color 0.3s ease; /* Transición suave */
+}
+
+.main-navigation ul li a:hover,
+.main-navigation ul li a.active { /* Podrías añadir una clase 'active' a la página actual */
+    color: #BBBBBB; /* Gris claro en hover */
+    /* border-bottom: 2px solid #FFFFFF; Opcional: borde en hover */
+}
+
+
+/* --- Footer Styles --- */
+.site-footer {
+    background-color: #111111; /* Negro */
+    color: #CCCCCC; /* Gris claro para texto del footer */
+    padding: 40px 0; /* Espacio vertical interno generoso */
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las columnas se ajusten en pantallas pequeñas */
+    justify-content: space-between;
+    gap: 20px; /* Espacio entre columnas */
+}
+
+.footer-column {
+    flex: 1; /* Permite que las columnas crezcan */
+    min-width: 200px; /* Ancho mínimo para cada columna antes de que se reorganicen */
+    margin-bottom: 20px;
+}
+
+.footer-column h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #FFFFFF; /* Títulos de columna en blanco */
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.footer-column p,
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li a {
+    color: #CCCCCC;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #FFFFFF; /* Texto se vuelve blanco en hover */
+}
+
+.footer-logo {
+    height: 30px; /* Logo más pequeño en el footer */
+    width: auto;
+    margin-bottom: 10px;
+}
+
+.social-icons a {
+    color: #CCCCCC;
+    margin-right: 10px; /* Espacio entre iconos sociales */
+    font-size: 18px; /* Si usas iconos de fuente */
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #FFFFFF;
+}
+
+/* Para la barra de copyright que a veces se pone al final final dentro del footer */
+/* Si la quieres separada, puedes crear un div.copyright-bar con fondo #000 */
+.site-footer p:last-child { /* Estilo para el último párrafo en la primera columna (copyright) */
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+/* --- Hero Section Styles --- */
+.hero-section {
+    /* Esta sección será un carrusel, por ahora estilizamos un slide individual.
+       Si usáramos una librería de JS para el carrusel, ella manejaría el cambio de slides.
+       Por ahora, solo el primer .hero-slide será visible si no hay JS. */
+    position: relative; /* Necesario si pones controles de carrusel absolutos después */
+    overflow: hidden; /* Evita que los slides se desborden si son más anchos */
+}
+
+.hero-slide {
+    min-height: 70vh; /* Altura mínima, ocupa el 70% de la altura de la ventana. Ajusta según gusto. */
+    /* O podrías usar una altura fija: min-height: 500px; */
+    display: flex; /* Para centrar el contenido vertical y horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    text-align: center;
+    padding: 60px 20px; /* Espaciado interno */
+    color: #FFFFFF; /* Texto blanco por defecto para slides oscuros */
+
+    /* Para la imagen de fondo - esto es un ejemplo, reemplaza con tu imagen */
+    /* La idea es que cada slide del carrusel pueda tener su propia imagen de fondo */
+    background-size: cover; /* Hace que la imagen cubra todo el espacio */
+    background-position: center center; /* Centra la imagen */
+    background-repeat: no-repeat;
+}
+
+/* Estilo específico para el primer slide (el que tenemos en el HTML) */
+#slide1 {
+    /* Podrías poner aquí la imagen de fondo específica para el slide 1 */
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/hero-background-1.jpg'); */
+    /* El linear-gradient es para oscurecer un poco la imagen y que el texto resalte */
+    /*background-color: #1a1a1a; /* Un fondo oscuro si no tienes imagen aún */
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("../images/img1.jpg");
+}
+
+
+.hero-slide .container { /* Usamos el .container que ya definimos para centrar el contenido */
+    max-width: 800px; /* Limita el ancho del texto para mejor legibilidad */
+}
+
+.hero-slide h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.0em; /* Tamaño grande para el H1. Ajusta según veas. */
+    font-weight: 700; /* Bold */
+    color: #FFFFFF;
+    margin-bottom: 0.3em;
+    line-height: 1.2;
+}
+
+.hero-slide h2 { /* Para el subtítulo "Especialistas Apple..." */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    font-weight: 500; /* Medium o SemiBold */
+    color: #E0E0E0; /* Un blanco un poco menos brillante que el H1 */
+    margin-bottom: 0.8em;
+    line-height: 1.3;
+}
+
+.hero-slide p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1em;
+    color: #D0D0D0; /* Un gris claro */
+    margin-bottom: 1.5em;
+    max-width: 600px; /* Limita el ancho del párrafo */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Button Styles --- */
+.btn {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; /* SemiBold */
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 5px; /* Esquinas ligeramente redondeadas */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+    font-size: 1em;
+    border: 2px solid transparent; /* Borde transparente para mantener tamaño en hover */
+}
+
+.btn-primary { /* Botón principal: fondo negro, texto blanco */
+    background-color: #111111;
+    color: #FFFFFF;
+    border-color: #111111;
+}
+
+.btn-primary:hover {
+    background-color: #333333; /* Un negro un poco más claro o el mismo y cambia borde */
+    border-color: #333333;
+    color: #FFFFFF;
+}
+
+/* Botón primario sobre fondos oscuros (como en el hero) podría ser blanco */
+.hero-slide .btn-primary { /* Un estilo específico si el botón primario está en un fondo oscuro */
+    background-color: #FFFFFF;
+    color: #111111; /* Texto negro */
+    border-color: #FFFFFF;
+}
+
+.hero-slide .btn-primary:hover {
+    background-color: #E0E0E0; /* Un gris claro al pasar el mouse */
+    border-color: #E0E0E0;
+    color: #111111;
+}
+
+.btn-secondary { /* Botón secundario: borde negro, texto negro, fondo transparente */
+    background-color: transparent;
+    color: #111111;
+    border-color: #111111;
+}
+
+.btn-secondary:hover {
+    background-color: #111111;
+    color: #FFFFFF;
+}
+
+/* --- Why Choose Us Section --- */
+.section-padding { /* Una clase genérica para dar espaciado vertical a las secciones */
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.section-title { /* Estilo para los títulos principales de sección (H2) */
+    text-align: center;
+    font-size: 2.2em; /* Tamaño del título de sección */
+    font-weight: 700; /* Bold */
+    color: #111111; /* Negro */
+    margin-bottom: 40px; /* Espacio debajo del título de sección */
+    text-transform: uppercase; /* Opcional: para darle más énfasis */
+    letter-spacing: 1px; /* Opcional: pequeño espaciado entre letras */
+}
+
+.why-choose-us {
+    background-color: #FFFFFF; /* Fondo blanco para esta sección */
+}
+
+.features-grid {
+    display: grid;
+    /* Crea 3 columnas en desktop, o las que definas. Si tienes 4 items, usa repeat(4, 1fr) */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+    gap: 30px; /* Espacio entre los items de la cuadrícula */
+    text-align: center; /* Centra el texto dentro de cada feature-item */
+}
+
+/*.feature-item {
+    /* background-color: #f9f9f9; Opcional: un fondo muy sutil para cada item */
+    /* padding: 20px; Opcional: si quieres más padding interno */
+    /* border: 1px solid #eee; Opcional: si quieres un borde */
+    /* border-radius: 5px; Opcional */
+
+
+/*.feature-item .icon-placeholder {
+    /* Los estilos ya los tienes en línea, pero idealmente estarían aquí.
+       Cuando tengamos los iconos reales (SVG o font icons), los estilizaremos aquí.
+       Por ejemplo, si fuera un tag <i> de FontAwesome:
+       font-size: 40px;
+       color: #111111; (o tu color de acento si decides usar uno)
+       margin-bottom: 15px;
+    */
+
+
+
+.feature-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4em;
+    font-weight: 600; /* SemiBold */
+    color: #111111; /* Negro */
+    margin-top: 15px; /* Espacio sobre el H3 si el icono está arriba */
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95em;
+    color: #555555; /* Un gris un poco más oscuro para el texto descriptivo */
+    line-height: 1.7;
+}
+
+
+/* --- Services Section --- */
+.services-section {
+    background-color: #f5f5f5; /* Fondo gris muy claro para esta sección */
+}
+
+.services-grid {
+    display: grid;
+    /* Crea 2 columnas en desktop por defecto, ajusta según el número de servicios o preferencia */
+    /* Si son 4 items como en el ejemplo, repeat(2, 1fr) se ve bien en pantallas medias/grandes */
+    /* Para que sean responsivas y se pongan 1 o 2 por fila según ancho: */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Espacio entre los items de servicio */
+}
+
+.service-item {
+    background-color: #FFFFFF; /* Fondo blanco para cada tarjeta de servicio */
+    border: 1px solid #e0e0e0; /* Borde sutil */
+    border-radius: 8px; /* Esquinas redondeadas para las tarjetas */
+    overflow: hidden; /* Para que la imagen no se salga si tiene bordes redondeados */
+    display: flex;
+    flex-direction: column; /* Apila imagen y contenido verticalmente */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px); /* Ligero efecto de elevación al pasar el mouse */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08); /* Sombra más pronunciada en hover */
+}
+
+.service-item-image {
+    width: 100%;
+    height: 200px; /* La altura que ya tenías definida para la img */
+    background-color: #e9e9e9; /* Un color de fondo placeholder para el espacio de la imagen */
+    display: flex; /* Opcional: para centrar un texto o icono de placeholder si pones uno */
+    align-items: center;
+    justify-content: center;
+    /* font-size: 1.5em; color: #ccc; Si quieres poner un texto como "Imagen Próximamente" */
+}
+
+.service-item-image img { /* Este estilo aplicará cuando SÍ tengas la imagen */
+    width: 100%;
+    height: 100%; /* Para que la imagen ocupe la altura del div padre */
+    object-fit: cover;
+    display: block;
+}
+
+.service-item-content {
+    padding: 25px;
+    flex-grow: 1; /* Permite que esta sección crezca para igualar alturas si es necesario */
+    display: flex;
+    flex-direction: column;
+}
+
+.service-item-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em; /* Tamaño para los títulos de servicio */
+    font-weight: 600; /* SemiBold */
+    color: #111111;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.service-item-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95em;
+    color: #555555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Empuja el botón "Saber Más" hacia abajo si el texto es corto */
+}
+
+.btn-learn-more {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #111111; /* Color del texto del botón (negro) */
+    text-decoration: none;
+    display: inline-block; /* Para que no ocupe todo el ancho */
+    align-self: flex-start; /* Alinea el botón a la izquierda dentro de su contenedor flex */
+    padding: 8px 0; /* Solo padding vertical, sin padding horizontal para que parezca más un enlace */
+    transition: color 0.3s ease;
+}
+
+.btn-learn-more .arrow {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.btn-learn-more:hover {
+    color: #007aff; /* Un azul Apple o un color de acento si decides usar uno */
+    /* O simplemente un negro más intenso: color: #000000; */
+}
+
+.btn-learn-more:hover .arrow {
+    transform: translateX(5px); /* Mueve la flecha un poco a la derecha en hover */
+}
+
+/* --- Featured Products Section (Homepage Teaser) --- */
+.featured-products-section {
+    background-color: #FFFFFF; /* Fondo blanco */
+}
+
+.products-grid {
+    display: grid;
+    /* Ajusta para 3 o 4 columnas en desktop, o auto-fit como antes */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* Espacio entre los items de producto */
+}
+
+.product-item-teaser {
+    background-color: #FFFFFF;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center; /* Centra el contenido de la tarjeta */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item-teaser:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.product-item-teaser-image { /* Similar al de servicios, para el placeholder */
+    width: 100%;
+    height: 220px; /* Puedes ajustar esta altura */
+    background-color: #f0f0f0; /* Placeholder si no hay imagen */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-item-teaser-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 'Contain' para que se vea el producto completo, 'cover' si quieres que llene el espacio */
+    display: block;
+}
+
+.product-item-teaser-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para empujar el botón hacia abajo */
+}
+
+.product-item-teaser-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25em; /* Un poco más pequeño que los títulos de servicio */
+    font-weight: 600;
+    color: #111111;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.product-condition {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8em;
+    color: #777777; /* Gris para la condición */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    /* Para una etiqueta/badge:
+    display: inline-block;
+    padding: 3px 8px;
+    background-color: #e0e0e0;
+    color: #555;
+    border-radius: 4px;
+    */
+}
+
+.product-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3em;
+    font-weight: 700; /* Bold para el precio */
+    color: #111111;
+    margin-bottom: 15px;
+}
+
+.btn-small { /* Modificador para hacer botones más pequeños */
+    padding: 8px 20px;
+    font-size: 0.9em;
+}
+
+.view-all-products-link {
+    text-align: center; /* Centra el botón "Ver Todos los Equipos" */
+    margin-top: 40px; /* Espacio sobre el botón */
+}
+
+/* --- Testimonials Section --- */
+.testimonials-section {
+    background-color: #111111; /* Fondo negro para esta sección */
+    color: #FFFFFF; /* Texto blanco por defecto */
+}
+
+.testimonials-section .section-title {
+    color: #FFFFFF; /* Título de sección en blanco sobre fondo oscuro */
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas responsivas */
+    gap: 30px;
+}
+
+.testimonial-item {
+    background-color: #222222; /* Un gris oscuro para el fondo de cada testimonio, más claro que el fondo de sección */
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para que el autor quede abajo si los textos varían en altura */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.testimonial-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1em; /* o 1.05em */
+    line-height: 1.7;
+    color: #E0E0E0; /* Un gris claro para el texto del testimonio */
+    margin-bottom: 20px;
+    font-style: italic; /* Opcional: para darle un look de cita */
+}
+
+.testimonial-content p::before { /* Opcional: comillas de apertura estilizadas */
+    content: "“";
+    font-size: 2.5em;
+    color: #555555; /* Color sutil para las comillas */
+    line-height: 0;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.testimonial-author h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #FFFFFF;
+    margin-bottom: 0; /* Ajustado, sin margen inferior si no hay "author-detail" */
+}
+
+.testimonial-author .author-detail { /* Si decides usarlo */
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85em;
+    color: #BBBBBB;
+    margin-top: 3px;
+}
+
+
+/* --- Final CTA Section --- */
+.final-cta-section {
+    background-color: #f5f5f5; /* Fondo gris muy claro, igual que la sección de servicios */
+    /* O podrías usar #FFFFFF si prefieres blanco */
+}
+
+.final-cta-section .section-title {
+    margin-bottom: 20px; /* Menos espacio inferior para el título en esta sección */
+}
+
+.text-center { /* Clase de utilidad para centrar texto */
+    text-align: center;
+}
+
+.cta-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1em;
+    color: #555555;
+    max-width: 600px; /* Limita el ancho del subtítulo */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px; /* Espacio antes del botón */
+}
+
+.btn-large { /* Modificador para hacer botones más grandes */
+    padding: 15px 40px;
+    font-size: 1.15em;
+    font-weight: 700; /* Más bold para el botón grande */
+}
+
+/* --- Product List Page (tienda/equipos) --- */
+.product-list-page {
+    background-color: #FFFFFF; /* O #f5f5f5 si prefieres un fondo gris claro */
+}
+
+.page-title { /* Estilo para H1 en páginas internas */
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 40px;
+    /* text-align: center; Ya está en la clase .text-center del HTML */
+}
+
+/* --- Product Grid Full Page --- */
+.products-grid-full {
+    display: grid;
+    /* Generalmente 3 columnas para una página de tienda se ve bien */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Espacio entre las tarjetas de producto */
+}
+
+.product-card {
+    background-color: #FFFFFF;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden; /* Para que la imagen no se salga de los bordes redondeados */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.product-card-link { /* Si toda la tarjeta es un enlace */
+    text-decoration: none;
+    color: inherit; /* Hereda el color de texto normal */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Para que el enlace ocupe toda la tarjeta */
+}
+
+.product-card-image {
+    width: 100%;
+    height: 250px; /* Altura para las imágenes de producto en la lista, ajústala */
+    background-color: #f0f0f0; /* Color de fondo si la imagen no carga o no existe */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.product-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 'contain' para ver el producto completo, 'cover' para rellenar */
+}
+
+.image-placeholder-large { /* Estilo para el div si no hay imagen */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7f7f7;
+    color: #ccc;
+    font-size: 0.9em;
+}
+
+.product-card-content {
+    padding: 20px;
+    text-align: center; /* Centra el texto dentro del contenido de la tarjeta */
+    flex-grow: 1; /* Asegura que todas las tarjetas tengan la misma altura si están en una fila */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para que el contenido se distribuya */
+}
+
+.product-card-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #111111;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.product-condition-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8em;
+    color: #FFFFFF;
+    background-color: #555555; /* Un fondo gris oscuro para la etiqueta de condición */
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block; /* Para que se ajuste al texto */
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.product-price-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #111111; /* o un color de acento si quieres destacarlo más */
+    margin-bottom: 0; /* Quitamos el margen inferior si es lo último antes del botón (o si no hay botón) */
+}
+
+/* Si decides usar un botón explícito en lugar de que toda la tarjeta sea un enlace: */
+/* .product-card-button {
+    margin-top: 15px;
+    align-self: center; Para centrar el botón
+} */
+
+
+
+/* --- Product Detail Page --- */
+.product-detail-page {
+    background-color: #FFFFFF;
+}
+
+.product-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Por defecto una columna para móviles */
+    gap: 40px;
+}
+
+/* Para pantallas más grandes, dos columnas */
+@media (min-width: 768px) {
+    .product-detail-grid {
+        grid-template-columns: 1fr 1fr; /* Dos columnas: imagen a la izq, info a la der */
+        /* O podrías ser más específico: grid-template-columns: 40% 55%; (ajusta porcentajes) */
+    }
+}
+
+.product-detail-images .main-product-image {
+    width: 100%;
+    max-width: 500px; /* Limita el tamaño máximo de la imagen principal */
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    object-fit: contain;
+    display: block;
+    margin-left: auto; /* Centra la imagen si es más pequeña que el contenedor */
+    margin-right: auto;
+}
+
+.image-placeholder-xl { /* Placeholder si no hay imagen en la página de detalle */
+    width: 100%;
+    max-width: 500px;
+    height: 400px; /* Altura considerable */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7f7f7;
+    color: #ccc;
+    font-size: 1.2em;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-detail-info .product-title {
+    font-size: 2.2em; /* H1 para el título del producto */
+    font-weight: 700;
+    margin-top: 0; /* Quita margen superior si está en la segunda columna */
+    margin-bottom: 15px;
+}
+
+.product-condition-detail {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.product-condition-detail strong {
+    color: #111;
+}
+
+.product-price-detail {
+    font-size: 2em; /* Precio grande y destacado */
+    font-weight: 700;
+    color: #111111; /* o un color de acento */
+    margin-bottom: 25px;
+}
+
+.product-description h4,
+.product-specs h4 {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.product-description p,
+.product-specs ul li {
+    font-size: 1em;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.product-specs ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.cta-buttons-detail {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.cta-buttons-detail .btn {
+    margin-right: 10px; /* Espacio si pones más de un botón */
+    margin-bottom: 10px; /* Espacio para móviles si se apilan */
+}
+
+.back-to-store-link {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+.back-to-store-link a {
+    color: #555;
+    text-decoration: none;
+}
+.back-to-store-link a:hover {
+    color: #111;
+    text-decoration: underline;
+}
+
+
+/* --- About Us Page (sobre-nosotros.html) --- */
+.about-page {
+    background-color: #FFFFFF;
+}
+
+.about-header .page-title { /* El .page-title ya tiene estilos, pero podemos ajustar márgenes */
+    margin-bottom: 15px;
+}
+
+.page-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2em;
+    color: #555555;
+    max-width: 700px;
+    margin: 0 auto 40px auto; /* Centra y da espacio inferior */
+}
+
+.section-padding-small { /* Menos padding para subsecciones internas */
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.steven-intro .row { /* Simple helper para layout de dos columnas */
+    display: flex;
+    flex-wrap: wrap; /* Para que se apilen en móviles */
+    align-items: center; /* Alinea verticalmente los items */
+    gap: 30px; /* Espacio entre columnas */
+}
+
+.steven-intro .col-md-5 {
+    flex: 0 0 41.666667%; /* Aproximadamente 5/12 para la imagen */
+    max-width: 41.666667%;
+}
+
+.steven-intro .col-md-7 {
+    flex: 0 0 58.333333%; /* Aproximadamente 7/12 para el texto */
+    max-width: 58.333333%;
+}
+
+/* Para que en pantallas pequeñas (móviles) las columnas ocupen el 100% */
+@media (max-width: 767px) {
+    .steven-intro .col-md-5,
+    .steven-intro .col-md-7 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center; /* Centra la imagen y el texto en móvil */
+    }
+    .steven-intro .profile-image {
+        margin-bottom: 20px;
+    }
+}
+
+
+.profile-image {
+    max-width: 300px; /* Ajusta según el tamaño de la foto de Steven */
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* Imagen de perfil circular */
+    border: 5px solid #f0f0f0; /* Borde sutil */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.steven-intro h2 {
+    font-size: 1.8em; /* Ajusta según necesidad */
+    margin-bottom: 15px;
+    color: #111;
+}
+
+.lead-text { /* Para el primer párrafo introductorio */
+    font-size: 1.15em;
+    font-weight: 500; /* Inter Medium */
+    color: #333;
+    margin-bottom: 1em;
+}
+
+.steven-intro p {
+    font-size: 1em;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 1em;
+}
+
+.steven-intro blockquote {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    font-size: 1.1em;
+    color: #333;
+    border-left: 4px solid #111111; /* Una línea negra a la izquierda de la cita */
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.steven-intro blockquote p {
+    margin-bottom: 0.5em;
+}
+
+.reparasteven-values .section-title {
+    margin-top: 30px; /* Espacio extra sobre el título de esta sección */
+}
+
+/* Estilos para la galería del taller (opcional) */
+.workshop-gallery .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.workshop-gallery .gallery-grid img {
+    width: 100%;
+    height: 200px; /* Ajusta la altura de las imágenes de la galería */
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+
+/* --- Contact Page (contacto.html) --- */
+.contact-page {
+    background-color: #FFFFFF;
+}
+
+.contact-header .page-title {
+    margin-bottom: 15px;
+}
+/* .page-subtitle ya tiene estilos generales */
+
+.contact-content-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto para móviles */
+    gap: 40px; /* Espacio entre la info/mapa y el formulario */
+}
+
+/* Dos columnas para pantallas más grandes */
+@media (min-width: 992px) {
+    .contact-content-grid {
+        grid-template-columns: 1fr 1.2fr; /* La columna del formulario un poco más ancha */
+    }
+}
+
+/*.contact-info-map {
+    /* Contenedor para los detalles de contacto y el mapa */
+
+
+.contact-details h3,
+.contact-form-container h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6em;
+    font-weight: 600;
+    color: #111111;
+    margin-bottom: 20px;
+}
+
+.contact-details p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    color: #333;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+.contact-details p strong {
+    color: #111;
+}
+.contact-details a {
+    color: #111111; /* O un color de acento */
+    text-decoration: none;
+}
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+.contact-details h4 { /* Para "Horario de Atención" */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #222;
+    margin-top: 25px;
+    margin-bottom: 8px;
+}
+
+.map-container {
+    margin-top: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden; /* Para que el iframe respete el borde redondeado */
+}
+
+.map-container iframe {
+    display: block; /* Elimina espacio extra debajo del iframe */
+}
+
+/* --- Contact Form Styles --- */
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form input[type="tel"]:focus,
+.contact-form textarea:focus {
+    border-color: #111111; /* Borde más oscuro al enfocar */
+    outline: none; /* Quita el outline por defecto del navegador */
+}
+
+.contact-form textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 120px;
+}
+
+.contact-form button[type="submit"] {
+    /* .btn y .btn-primary ya tienen estilos, podemos usarlos directamente */
+    /* Si quieres un tamaño específico para este botón: */
+    /* padding: 12px 30px; */
+    /* font-size: 1em; */
+    cursor: pointer;
+}
+
+
+/* --- Services Detail Page (reparaciones.html) --- */
+.services-detail-page {
+    background-color: #FFFFFF;
+}
+
+.services-detail-page .page-header .page-title { /* Usamos .page-header como en about-us */
+    margin-bottom: 15px;
+}
+/* .page-subtitle ya tiene estilos generales */
+
+/*.device-repair-section {
+    /* background-color: #f9f9f9; Un fondo muy sutil si quieres diferenciar cada sección */
+    /* border: 1px solid #eee; */
+    /* border-radius: 8px; */
+    /* margin-bottom: 40px; Espacio entre secciones de dispositivo */
+    /* padding: 30px; Si usas fondo/borde */
+
+
+.device-section-header {
+    display: flex;
+    align-items: center; /* Alinea el icono y el título verticalmente */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0; /* Una línea sutil debajo del header de sección */
+    padding-bottom: 15px;
+}
+
+.device-icon {
+    width: 50px; /* Ajusta el tamaño de tus iconos */
+    height: 50px;
+    margin-right: 20px;
+    object-fit: contain;
+}
+
+.device-section-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em; /* Tamaño para los H2 de cada dispositivo */
+    font-weight: 600;
+    color: #111111;
+    margin-bottom: 0; /* Quitamos margen al h2 porque el header ya tiene padding-bottom */
+}
+
+.device-section-intro {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05em;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    max-width: 800px; /* Limita el ancho del párrafo introductorio */
+}
+
+.service-list {
+    list-style: none; /* Quita los bullets por defecto */
+    padding-left: 0; /* Quita el padding por defecto */
+    margin-bottom: 30px;
+    display: grid; /* Para dos columnas si quieres */
+    grid-template-columns: 1fr; /* Por defecto una columna */
+    gap: 10px;
+}
+
+/* Para dos columnas en pantallas más grandes */
+@media (min-width: 768px) {
+    .service-list {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px 30px; /* Espacio vertical y horizontal */
+    }
+}
+
+.service-list li {
+    font-family: 'Inter', sans-serif;
+    font-size: 1em;
+    color: #333;
+    padding: 8px 0;
+    padding-left: 25px; /* Espacio para el "check" o icono */
+    position: relative; /* Para posicionar el pseudo-elemento "check" */
+    border-bottom: 1px dotted #e0e0e0; /* Línea punteada sutil entre items */
+}
+.service-list li:last-child {
+    border-bottom: none; /* El último item no tiene borde inferior */
+}
+
+.service-list li::before { /* Pseudo-elemento para simular un check o bullet personalizado */
+    content: '✓'; /* O podrías usar '\2713' o un icono SVG como background-image */
+    color: #111111; /* Color del check (o tu color de acento) */
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 8px; /* Ajusta para alinear verticalmente */
+}
+
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 50px 0; /* Espacio generoso para la línea divisoria */
+}
+
+.section-cta { /* Contenedor para el botón de consulta de cada sección */
+    margin-top: 20px;
+}
+
+.contact-prompt { /* Para la última llamada a la acción de esta página */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 40px;
+}
+
+.contact-prompt h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6em;
+    color: #111;
+    margin-bottom: 15px;
+}
+.contact-prompt p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 25px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,67 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Sobre ReparaSteven - Expertos Apple en Santa Cruz{% endblock %}
+
+{% block content %}
+<div class="about-page section-padding">
+    <div class="container">
+        <header class="about-header text-center">
+            <h1 class="page-title">Conoce a ReparaSteven</h1>
+            <p class="page-subtitle">Pasión por la tecnología Apple y compromiso con la excelencia en cada reparación.</p>
+        </header>
+
+        <section class="steven-intro section-padding-small">
+            <div class="row align-items-center">
+                <div class="col-md-5 text-center">
+                    {# Asume que tendrás una foto profesional de Steven en static/images/ #}
+                    <img src="{% static 'images/steven_profile_placeholder.jpg' %}" alt="Steven Piedrahita - ReparaSteven" class="profile-image">
+                </div>
+                <div class="col-md-7">
+                    <h2>Steven Piedrahita: Técnico Instructor y Fundador</h2>
+                    <p class="lead-text">Con más de [X] años de experiencia dedicados exclusivamente al universo Apple, Steven no solo repara tus dispositivos, sino que entiende la importancia que tienen en tu día a día.</p>
+                    <p>Su trayectoria como <strong>Instructor Certificado</strong> le permite abordar cada desafío técnico con una profunda comprensión y ofrecer soluciones precisas y duraderas. En ReparaSteven, cada iPhone, Mac o iPad es tratado con el máximo cuidado y profesionalismo.</p>
+                    <blockquote>
+                        "Mi objetivo es que cada cliente salga no solo con su equipo funcionando perfectamente, sino con la tranquilidad de haber recibido el mejor servicio posible." - Steven P.
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section class="reparasteven-values section-padding-small">
+            <h2 class="section-title">Nuestra Filosofía de Trabajo</h2>
+            <div class="features-grid"> {# Reutilizamos la clase features-grid para consistencia #}
+                <div class="feature-item">
+                    {# Icono para Calidad #}
+                    <div class="icon-placeholder"></div>
+                    <h3>Calidad Apple</h3>
+                    <p>Utilizamos repuestos de la más alta calidad y las herramientas adecuadas para asegurar reparaciones que cumplen con los estándares más exigentes.</p>
+                </div>
+                <div class="feature-item">
+                    {# Icono para Confianza / #1 en O'Higgins #}
+                    <div class="icon-placeholder"></div>
+                    <h3>#1 en O'Higgins</h3>
+                    <p>Reconocidos en Santa Cruz y toda la región por nuestra excelencia, rapidez y la confianza que depositan nuestros clientes.</p>
+                </div>
+                <div class="feature-item">
+                    {# Icono para Compromiso / Atención Personalizada #}
+                    <div class="icon-placeholder"></div>
+                    <h3>Compromiso Total</h3>
+                    <p>Desde el diagnóstico inicial hasta la entrega final, te mantenemos informado y te ofrecemos una atención personalizada y transparente.</p>
+                </div>
+            </div>
+        </section>
+
+        {# Opcional: Sección de "Nuestra Historia" o "El Taller" si tienes contenido/fotos #}
+        {# <section class="workshop-gallery section-padding-small">
+            <h2 class="section-title">Nuestro Espacio de Trabajo</h2>
+            <div class="gallery-grid">
+                <img src="{% static 'images/taller1_placeholder.jpg' %}" alt="Taller ReparaSteven 1">
+                <img src="{% static 'images/taller2_placeholder.jpg' %}" alt="Taller ReparaSteven 2">
+                <img src="{% static 'images/taller3_placeholder.jpg' %}" alt="Taller ReparaSteven 3">
+            </div>
+        </section> #}
+
+    </div>
+</div>
+{% endblock %}

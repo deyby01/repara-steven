@@ -1,0 +1,160 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib60/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a script, but you might change things manually.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/ # Si no quieres subir las imágenes de productos (contenido dinámico)
+# staticfiles/ # Si generas los archivos estáticos con collectstatic en producción, no necesitas versionar esta carpeta.
+             # Sin embargo, si tus archivos estáticos *editables* están solo aquí, NO la ignores.
+             # Dado que tenemos una carpeta /static/ a nivel de proyecto para nuestros CSS/JS/imagenes de diseño,
+             # la carpeta /staticfiles/ (generada por collectstatic) sí la podemos ignorar.
+staticfiles_build/ # Para WhiteNoise o similares
+staticfiles/
+
+# Virtualenv
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyderworkspace
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# environments
+.env
+.env.*
+!default.env # Si tienes un archivo de ejemplo para variables de entorno
+
+# dotenv
+.env # Si usas python-dotenv
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*~
+*.sublime-project
+*.sublime-workspace
+
+# SQLite
+*.sqlite3
+*.sqlite3-journal
+
+# Microsoft Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# static collected by django
+# static_root/  # Descomenta si tu STATIC_ROOT se llama así y no quieres versionarlo.
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Sass
+.sass-cache/
+.node-sass/
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json # Si no quieres bloquear versiones de dependencias de node, aunque usualmente se versiona
+yarn.lock         # Igual que el anterior
+
+# Webpack
+# .webpack_cache/ # Comentado por si lo usas directamente
+
+# Desktop.ini
+Desktop.ini
+
+# Thumbs.db
+Thumbs.db
+
+# ehthumbs.db
+ehthumbs.db
+
+# Ignore all log files
+*.log
+logs/

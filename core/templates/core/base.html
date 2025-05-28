@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ReparaSteven{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="{% url 'core:homepage' %}"> {# Enlace a la página de inicio #}
+                    <img src="{% static 'images/Logo.png' %}" alt="ReparaSteven Logo">
+                </a>
+            </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="{% url 'core:homepage' %}">Inicio</a></li>
+                    <li><a href="{% url 'core:reparaciones' %}">Reparaciones</a></li> {# Actualiza con la URL real cuando la tengas #}
+                    <li><a href="{% url 'tienda:lista_equipos' %}">Equipos en Venta</a></li> {# Ya tienes esta #}
+                    <li><a href="{% url 'core:sobre_nosotros' %}">Nosotros</a></li>     {# Actualiza con la URL real cuando la tengas #}
+                    <li><a href="{% url 'core:contacto' %}">Contacto</a></li>      {# Actualiza con la URL real cuando la tengas #}
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-column">
+                <img src="{% static 'images/reparasteven_logo_white.png' %}" alt="ReparaSteven Logo Pequeño" class="footer-logo">
+                <p>&copy; {% now "Y" %} ReparaSteven.cl <br> Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="{% url 'core:reparaciones' %}">Reparaciones</a></li>
+                    <li><a href="{% url 'tienda:lista_equipos' %}">Equipos en Venta</a></li>
+                    <li><a href="{% url 'core:sobre_nosotros' %}">Sobre Nosotros</a></li>
+                    <li><a href="{% url 'core:contacto' %}">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contacto</h4>
+                <p>Av. Nicolás Palacios 173, Santa Cruz, O'Higgins</p>
+                <p>Tel: +56 9 XXXX XXXX</p> {# Reemplaza con el teléfono real #}
+                <p>Email: steven@reparasteven.cl</p> {# Reemplaza con el email real #}
+            </div>
+            <div class="footer-column">
+                <h4>Síguenos</h4>
+                <div class="social-icons">
+                    {# Aquí podrías poner iconos de redes sociales si los tienes #}
+                    <a href="https_instagram_com_repara_steven" target="_blank">Instagram</a> {# Reemplaza con enlace real #}
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

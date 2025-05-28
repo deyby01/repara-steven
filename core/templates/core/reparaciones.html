@@ -1,0 +1,100 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Servicios de Reparación Apple - ReparaSteven{% endblock %}
+
+{% block content %}
+<div class="services-detail-page section-padding">
+    <div class="container">
+        <header class="page-header text-center">
+            <h1 class="page-title">Nuestros Servicios de Reparación Especializada</h1>
+            <p class="page-subtitle">Soluciones expertas para todos tus dispositivos Apple. Desde problemas comunes hasta reparaciones complejas.</p>
+        </header>
+
+        {# ----- Sección iPhone ----- #}
+        <section id="reparacion-iphone" class="device-repair-section section-padding-small">
+            <div class="device-section-header">
+                <img src="{% static 'images/icons/iphone.png' %}" alt="iPhone Icon" class="device-icon"> {# Necesitarás iconos #}
+                <h2>Reparación de iPhone</h2>
+            </div>
+            <p class="device-section-intro">Desde pantallas estrelladas hasta baterías agotadas o problemas de software, tenemos la solución para tu iPhone. Trabajamos con todos los modelos, ofreciendo diagnósticos precisos y reparaciones rápidas.</p>
+            <ul class="service-list">
+                <li>Reemplazo de Pantalla (Original y Calidad Premium)</li>
+                <li>Cambio de Batería con Indicador de Condición</li>
+                <li>Reparación de Placa Madre (Microelectrónica)</li>
+                <li>Solución a Problemas de Carga o Audio</li>
+                <li>Recuperación de Datos y Problemas de Software</li>
+                <li>Reparación de Cámaras y Sensores</li>
+            </ul>
+            <div class="text-center section-cta">
+                 <a href="{% url 'core:contacto' %}?asunto=Consulta%20Reparacion%20iPhone" class="btn btn-secondary">Consultar por mi iPhone</a>
+            </div>
+        </section>
+        <hr class="section-divider">
+
+        {# ----- Sección Mac ----- #}
+        <section id="reparacion-mac" class="device-repair-section section-padding-small">
+            <div class="device-section-header">
+                 <img src="{% static 'images/icons/icon-mac-color.png' %}" alt="Mac Icon" class="device-icon">
+                <h2>Reparación de Mac</h2>
+            </div>
+            <p class="device-section-intro">Tu MacBook, iMac, Mac Mini o Mac Pro en manos expertas. Realizamos desde actualizaciones de hardware hasta complejas reparaciones de placa y solución de problemas de rendimiento.</p>
+            <ul class="service-list">
+                <li>Diagnóstico y Reparación de Placa Lógica</li>
+                <li>Reemplazo de Teclado y Trackpad</li>
+                <li>Cambio de Pantalla o Display Completo</li>
+                <li>Actualización de SSD y Memoria RAM</li>
+                <li>Solución a Problemas de Sobrecalentamiento y Ventiladores</li>
+                <li>Instalación y Configuración de macOS</li>
+            </ul>
+             <div class="text-center section-cta">
+                 <a href="{% url 'core:contacto' %}?asunto=Consulta%20Reparacion%20Mac" class="btn btn-secondary">Consultar por mi Mac</a>
+            </div>
+        </section>
+        <hr class="section-divider">
+
+        {# ----- Sección iPad ----- #}
+        <section id="reparacion-ipad" class="device-repair-section section-padding-small">
+            <div class="device-section-header">
+                <img src="{% static 'images/icons/icon-ipad-color.png' %}" alt="iPad Icon" class="device-icon">
+                <h2>Reparación de iPad</h2>
+            </div>
+            <p class="device-section-intro">Ya sea para trabajo, estudio o entretenimiento, un iPad funcional es esencial. Solucionamos problemas de pantalla, batería, puertos de carga y más.</p>
+            <ul class="service-list">
+                <li>Cambio de Pantalla Táctil y LCD</li>
+                <li>Reemplazo de Batería</li>
+                <li>Reparación de Botones y Puerto de Carga</li>
+                <li>Solución a Problemas de Wi-Fi o Software</li>
+            </ul>
+             <div class="text-center section-cta">
+                 <a href="{% url 'core:contacto' %}?asunto=Consulta%20Reparacion%20iPad" class="btn btn-secondary">Consultar por mi iPad</a>
+            </div>
+        </section>
+        <hr class="section-divider">
+        
+        {# ----- Sección Apple Watch ----- #}
+        <section id="reparacion-watch" class="device-repair-section section-padding-small">
+            <div class="device-section-header">
+                <img src="{% static 'images/icons/icon-watch-color.png' %}" alt="Apple Watch Icon" class="device-icon">
+                <h2>Reparación de Apple Watch</h2>
+            </div>
+            <p class="device-section-intro">Mantenemos tu Apple Watch en perfecto estado. Expertos en reemplazo de pantalla, batería y otros componentes delicados de tu smartwatch.</p>
+            <ul class="service-list">
+                <li>Cambio de Pantalla/Cristal</li>
+                <li>Reemplazo de Batería</li>
+                <li>Solución a Problemas de Sincronización</li>
+            </ul>
+             <div class="text-center section-cta">
+                 <a href="{% url 'core:contacto' %}?asunto=Consulta%20Reparacion%20Apple%20Watch" class="btn btn-secondary">Consultar por mi Watch</a>
+            </div>
+        </section>
+
+        <div class="contact-prompt section-padding text-center">
+            <h3>¿No encuentras tu problema o dispositivo?</h3>
+            <p>No te preocupes, es probable que podamos ayudarte. Ponte en contacto con nosotros para una consulta personalizada.</p>
+            <a href="{% url 'core:contacto' %}" class="btn btn-primary btn-large">Contactar a ReparaSteven</a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

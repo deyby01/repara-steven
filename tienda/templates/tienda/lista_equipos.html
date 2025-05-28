@@ -1,0 +1,70 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Equipos Apple Disponibles - ReparaSteven{% endblock %}
+
+{% block content %}
+<div class="product-list-page section-padding">
+    <div class="container">
+        <h1 class="page-title text-center">Nuestra Selección de Equipos Apple</h1>
+
+        {# Filtros (Placeholder - Funcionalidad de Django se vería después) #}
+        {# <aside class="filters-sidebar">
+            <h3>Filtrar Por:</h3>
+            <div class="filter-group">
+                <h4>Categoría</h4>
+                <ul>
+                    <li><a href="?categoria=iphone">iPhone</a></li>
+                    <li><a href="?categoria=macbook">MacBook</a></li>
+                    <li><a href="?categoria=ipad">iPad</a></li>
+                </ul>
+            </div>
+            <div class="filter-group">
+                <h4>Condición</h4>
+                 <ul>
+                    <li><a href="?condicion=NUEVO">Nuevo</a></li>
+                    <li><a href="?condicion=REAC_A">Reacondicionado</a></li>
+                    <li><a href="?condicion=SEMI_A">Semi-Nuevo</a></li>
+                </ul>
+            </div>
+             Más filtros aquí (precio, etc.)
+        </aside> #}
+
+        <div class="products-grid-full"> {# Usaremos una clase diferente para la cuadrícula completa #}
+            {% if productos %}
+                {% for producto in productos %}
+                <div class="product-card"> {# Una clase para la tarjeta de producto completa #}
+                    <a href="{% url 'tienda:detalle_equipo' producto.id %}" class="product-card-link"> {# Enlace a la página de detalle del producto (lo haremos después) #}
+                        <div class="product-card-image">
+                            {% if producto.imagen %}
+                                <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+                            {% else %}
+                                <div class="image-placeholder-large"><span>Imagen no disponible</span></div>
+                            {% endif %}
+                        </div>
+                        <div class="product-card-content">
+                            <h3>{{ producto.nombre }}</h3>
+                            <p class="product-condition-tag">{{ producto.get_condicion_display }}</p>
+                            <p class="product-price-tag">${{ producto.precio|floatformat:0 }} CLP</p>
+                        </div>
+                    </a>
+                    {# <a href="#" class="btn btn-secondary btn-small product-card-button">Ver Detalles</a> #}
+                    {# O podríamos hacer que toda la tarjeta sea clickeable como arriba #}
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="text-center" style="grid-column: 1 / -1;">No hay equipos disponibles en este momento. ¡Vuelve pronto!</p>
+            {% endif %}
+        </div>
+        {# Paginación (Placeholder - Funcionalidad de Django se vería después) #}
+        {# <nav class="pagination">
+            <ul>
+                <li><a href="#">&laquo; Anterior</a></li>
+                <li><a href="#" class="active">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">Siguiente &raquo;</a></li>
+            </ul>
+        </nav> #}
+    </div>
+</div>
+{% endblock %}  

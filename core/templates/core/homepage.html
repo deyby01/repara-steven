@@ -1,0 +1,231 @@
+{% extends "core/base.html" %}
+{% load static %} {# Aunque ya esté en base.html, a veces es buena práctica repetirlo si usas static tags aquí #}
+
+{% block title %}ReparaSteven - Expertos Apple en O'Higgins{% endblock %}
+
+{% block content %}
+    {# Aquí es donde irá todo el contenido específico de la página de inicio #}
+    {# Empezaremos con la estructura del Hero Section (Carrusel) #}
+
+    <section class="hero-section">
+        {# Contenido del Carrusel irá aquí - por ahora un placeholder #}
+        {# SLIDE 1 (Ejemplo de estructura) #}
+        <div class="hero-slide" id="slide1">
+            {# Aquí podrías poner una imagen de fondo con CSS más adelante #}
+            <div class="container">
+                <h1>REPARASTEVEN</h1>
+                <h2>Especialistas Apple en O'Higgins</h2>
+                <p>Soluciones de alto rendimiento y confianza para todos tus dispositivos Apple.</p>
+                <a href="#" class="btn btn-primary">Ver Servicios de Reparación</a> {# Usaremos clases para los botones #}
+            </div>
+        </div>
+
+        {# SLIDE 2 (Placeholder) #}
+        <div class="hero-slide" id="slide2" style="background-color: #f0f0f0; color: #333; text-align: center; padding: 100px 20px;">
+            <div class="container">
+                <h1>Encuentra tu Próximo Dispositivo Apple</h1>
+                <p>Equipos seminuevos, reacondicionados y nuevos. Calidad garantizada.</p>
+                <a href="{% url 'tienda:lista_equipos' %}" class="btn btn-secondary">Explorar Equipos en Venta</a>
+            </div>
+        </div> 
+    </section>
+
+    <section class="why-choose-us section-padding">
+        <div class="container">
+            <h2 class="section-title">Tu Confianza, Nuestra Especialidad</h2>
+            <div class="features-grid">
+                {# Aquí irían las 3 o 4 columnas de "Por qué elegirnos" #}
+                <div class="feature-item">
+                    {# Icono irá aquí #}
+                    <div class="icon-placeholder"></div>
+                    <h3>Experiencia Certificada</h3>
+                    <p>Técnicos con la más alta preparación para cuidar tu inversión.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon-placeholder"></div>
+                    <h3>#1 en O'Higgins</h3>
+                    <p>Líderes en servicio técnico Apple en la región.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon-placeholder"></div>
+                    <h3>Garantía Total</h3>
+                    <p>Reparaciones y equipos con el respaldo que mereces.</p>
+                </div>
+                </div>
+                {# Podrías añadir un cuarto item si quieres #}
+                <div class="feature-item">
+                    <div class="icon-placeholder"></div>
+                    <h3>Atención Personalizada</h3>
+                    <p>Trato directo y soluciones a la medida de tus necesidades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Servicios de Reparación Apple</h2>
+            <div class="services-grid">
+
+                <div class="service-item">
+                    <div class="service-item-image">
+                        {# Imagen o icono representativo para iPhone #}
+                        {# Reemplaza 'iphone-service.jpg' con una imagen real o un placeholder mejor #}
+                        <img src="{% static 'images/placeholders/iphone-service-placeholder.png' %}" alt="Reparación de iPhone">
+                    </div>
+                    <div class="service-item-content">
+                        <h3>Reparación de iPhone</h3>
+                        <p>Solucionamos desde pantallas rotas hasta problemas de batería y placa en todos los modelos de iPhone.</p>
+                        <a href="#" class="btn-learn-more">Saber Más <span class="arrow">&rarr;</span></a>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-image">
+                        {# Imagen o icono representativo para Mac #}
+                        <img src="{% static 'images/placeholders/mac-service-placeholder.png' %}" alt="Reparación de Mac">
+                    </div>
+                    <div class="service-item-content">
+                        <h3>Reparación de Mac</h3>
+                        <p>Servicio técnico especializado para MacBook, iMac, Mac Mini y Mac Pro. Actualizaciones y reparaciones.</p>
+                        <a href="#" class="btn-learn-more">Saber Más <span class="arrow">&rarr;</span></a>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-image">
+                        {# Imagen o icono representativo para iPad #}
+                        <img src="{% static 'images/placeholders/ipad-service-placeholder.png' %}" alt="Reparación de iPad">
+                    </div>
+                    <div class="service-item-content">
+                        <h3>Reparación de iPad</h3>
+                        <p>Desde reemplazo de pantalla hasta fallos de carga, devolvemos la vida a tu iPad.</p>
+                        <a href="#" class="btn-learn-more">Saber Más <span class="arrow">&rarr;</span></a>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-item-image">
+                        {# Imagen o icono representativo para Apple Watch #}
+                        <img src="{% static 'images/placeholders/watch-service-placeholder.png' %}" alt="Reparación de Apple Watch">
+                    </div>
+                    <div class="service-item-content">
+                        <h3>Reparación de Apple Watch</h3>
+                        <p>Soluciones para problemas de batería, pantalla y otros componentes de tu Apple Watch.</p>
+                        <a href="#" class="btn-learn-more">Saber Más <span class="arrow">&rarr;</span></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-products-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Equipos Apple Destacados</h2>
+            <div class="products-grid">
+
+                {# Aquí irían los productos destacados. Estos datos vendrán de la base de datos más adelante. #}
+                {# Por ahora, ponemos HTML estático como ejemplo (repetir 3 o 4 veces) #}
+
+                <div class="product-item-teaser">
+                    <div class="product-item-teaser-image">
+                        {# Reemplaza con una imagen real o un placeholder #}
+                        <img src="{% static 'images/placeholders/product-placeholder-1.png' %}" alt="iPhone 13 Pro">
+                    </div>
+                    <div class="product-item-teaser-content">
+                        <h3>iPhone 13 Pro - 256GB</h3>
+                        <p class="product-condition">SEMINUEVO</p>
+                        <p class="product-price">$750.000 CLP</p>
+                        <a href="#" class="btn btn-secondary btn-small">Ver Detalles</a> {# Usaremos btn-secondary para este #}
+                    </div>
+                </div>
+
+                <div class="product-item-teaser">
+                    <div class="product-item-teaser-image">
+                        <img src="{% static 'images/placeholders/product-placeholder-2.png' %}" alt="MacBook Air M1">
+                    </div>
+                    <div class="product-item-teaser-content">
+                        <h3>MacBook Air M1 - 8GB/256GB</h3>
+                        <p class="product-condition">REACONDICIONADO</p>
+                        <p class="product-price">$880.000 CLP</p>
+                        <a href="#" class="btn btn-secondary btn-small">Ver Detalles</a>
+                    </div>
+                </div>
+
+                <div class="product-item-teaser">
+                    <div class="product-item-teaser-image">
+                        <img src="{% static 'images/placeholders/product-placeholder-3.png' %}" alt="iPad Air">
+                    </div>
+                    <div class="product-item-teaser-content">
+                        <h3>iPad Air (4ta Gen) - 64GB</h3>
+                        <p class="product-condition">NUEVO</p>
+                        <p class="product-price">$520.000 CLP</p>
+                        <a href="#" class="btn btn-secondary btn-small">Ver Detalles</a>
+                    </div>
+                </div>
+
+                {# Podrías tener un cuarto producto destacado si quieres #}
+
+            </div>
+            <div class="view-all-products-link">
+                <a href="{% url 'tienda:lista_equipos' %}" class="btn btn-primary">Ver Todos los Equipos</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Lo Que Nuestros Clientes Opinan</h2>
+            <div class="testimonials-grid">
+
+                {# Ejemplo de Testimonio 1 #}
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"Excelente servicio, muy profesionales y rápidos. Mi MacBook quedó como nuevo. ¡Totalmente recomendado!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <h4>Laura Fernández</h4>
+                        {# <p class="author-detail">Cliente de Santa Cruz</p> #}
+                    </div>
+                </div>
+
+                {# Ejemplo de Testimonio 2 #}
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"Llevé mi iPhone con la pantalla rota y en pocas horas estaba listo. La atención de Steven es de primera."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <h4>Carlos Herrera</h4>
+                        {# <p class="author-detail">iPhone X Reparado</p> #}
+                    </div>
+                </div>
+
+                {# Ejemplo de Testimonio 3 #}
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <p>"Confié en ReparaSteven para un problema complejo en mi iMac y no me defraudaron. Muy conocedores y honestos."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <h4>Ana Rojas</h4>
+                        {# <p class="author-detail">Servicio Técnico iMac</p> #}
+                    </div>
+                </div>
+
+                {# Puedes añadir más testimonios si tienes #}
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta-section section-padding">
+        <div class="container text-center"> {# Añadimos text-center aquí para centrar todo el contenido #}
+            <h2 class="section-title">¿Listo para la Solución Apple que Necesitas?</h2>
+            <p class="cta-subtitle">Contacta a ReparaSteven hoy mismo y recibe la mejor atención personalizada para tus dispositivos.</p>
+            <a href="#" class="btn btn-primary btn-large">Contactar Ahora</a> {# Un botón más grande #}
+        </div>
+    </section>
+
+    {# Aquí seguirían las otras secciones que definimos: Servicios, Equipos Destacados, Testimonios, etc. #}
+    {# Por ahora, nos enfocaremos en estilizar el Hero y esta sección "Why Choose Us". #}
+
+{% endblock %}
