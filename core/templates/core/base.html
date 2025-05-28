@@ -16,6 +16,10 @@
                     <img src="{% static 'images/Logo.png' %}" alt="ReparaSteven Logo">
                 </a>
             </div>
+            {# Botón Hamburguesa - visible solo en móvil #}
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
             <nav class="main-navigation">
                 <ul>
                     <li><a href="{% url 'core:homepage' %}">Inicio</a></li>
@@ -36,8 +40,9 @@
     <footer class="site-footer">
         <div class="container footer-container">
             <div class="footer-column">
-                <img src="{% static 'images/reparasteven_logo_white.png' %}" alt="ReparaSteven Logo Pequeño" class="footer-logo">
-                <p>&copy; {% now "Y" %} ReparaSteven.cl <br> Todos los derechos reservados.</p>
+                <img src="{% static 'images/Logo.png' %}" alt="ReparaSteven Logo Pequeño" class="footer-logo">
+                <p class="copyright-text">&copy; {% now "Y" %} ReparaSteven.cl <br> Todos los derechos reservados.</p>
+                <p class="developer-credit">Desarrollado por <a href="https://www.linkedin.com/in/deyby-camacho-piedrahita-01341b238/" target="_blank"><strong>Deyby Camacho</strong></a></p>
             </div>
             <div class="footer-column">
                 <h4>Enlaces Rápidos</h4>
@@ -63,5 +68,6 @@
             </div>
         </div>
     </footer>
+    <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

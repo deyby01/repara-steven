@@ -31,8 +31,8 @@ a {
 
 /* Un contenedor general para centrar contenido y limitar ancho */
 .container {
-    width: 90%;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1470px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 15px; /* Espacio para que el contenido no pegue a los bordes */
@@ -1221,4 +1221,205 @@ a {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+}
+
+
+/* --- Mobile Navigation Base Styles (fuera de media queries inicialmente) --- */
+.nav-toggle {
+    display: none; /* Oculto por defecto en desktop */
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 0.5em;
+    z-index: 1001; /* Por encima de la navegación */
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+    background-color: #FFFFFF; /* Color de las líneas de la hamburguesa */
+    width: 2em;
+    height: 3px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 3px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease;
+}
+
+.hamburger::before {
+    top: -0.6em; /* Separación de las líneas */
+}
+
+.hamburger::after {
+    bottom: -0.6em;
+}
+
+/* Estilos para cuando el menú está abierto (se activan con JS) */
+.nav-open .main-navigation { /* Si el body o el header tiene la clase nav-open */
+    transform: translateX(0); /* Muestra la navegación */
+}
+
+.nav-open .hamburger {
+    transform: rotate(45deg);
+}
+
+.nav-open .hamburger::before {
+    opacity: 0; /* Opcional: esconder línea del medio */
+    /* O rotar para formar la X */
+    /* transform: rotate(90deg) translateX(-0.6em); */
+}
+
+.nav-open .hamburger::after {
+    transform: rotate(-90deg) translateY(0.6em); /* Ajustar hasta formar la X */
+    /* O simplemente transform: rotate(-90deg) y ajustar la posición */
+    bottom: 0; /* Reajustar posición si es necesario */
+}
+
+
+/* --- Media Queries para Responsive Design --- */
+
+
+/* Para Móviles (ej. <= 767px) - Aquí es donde el menú hamburguesa entra en acción */
+@media (max-width: 767px) {
+    .nav-toggle {
+        display: block; /* Muestra el botón hamburguesa */
+    }
+
+    .main-navigation {
+        position: fixed; /* O position: absolute; respecto al header */
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 70%; /* O el ancho que prefieras para el menú desplegable */
+        max-width: 300px;
+        background-color: #1a1a1a; /* Un poco más oscuro o diferente al header para que se note */
+        transform: translateX(100%); /* Oculto fuera de la pantalla a la derecha */
+        transition: transform 0.3s ease-in-out;
+        padding-top: 5em; /* Espacio para que no choque con el header/botón X */
+        z-index: 999; /* Debajo del botón hamburguesa (que es 1001) pero encima del contenido */
+    }
+
+    .main-navigation ul {
+        flex-direction: column; /* Apila los items del menú verticalmente */
+        align-items: center; /* Centra los items */
+    }
+
+    .main-navigation ul li {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-navigation ul li a {
+        display: block; /* Para que ocupen todo el ancho y el padding funcione bien */
+        padding: 1em 1.5em; /* Más padding para que sean fáciles de tocar */
+        font-size: 1.1em;
+        border-bottom: 1px solid #333; /* Separador entre items */
+    }
+    .main-navigation ul li:last-child a {
+        border-bottom: none;
+    }
+
+    /* Hero Section en Móvil */
+    .hero-slide {
+        min-height: 60vh; /* Un poco menos de altura en móvil */
+        padding: 40px 15px;
+    }
+    .hero-slide h1 {
+        font-size: 2.2em; /* Ajusta tamaños de fuente para móvil */
+    }
+    .hero-slide h2 {
+        font-size: 1.4em;
+    }
+    .hero-slide p {
+        font-size: 1em;
+    }
+    .btn-large { /* Ajusta botones grandes si es necesario */
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+
+    /* Secciones con columnas (features, services, products, testimonials) */
+    /* La mayoría deberían pasar a 1 columna si usaste repeat(auto-fit, minmax(280px, 1fr))
+       y el minmax es suficientemente pequeño. Si no, fuerzalas: */
+    .features-grid,
+    .services-grid,
+    .products-grid,
+    .testimonials-grid,
+    .products-grid-full,
+    .contact-content-grid,
+    .gallery-grid { /* Si usaste la galería en "Sobre Nosotros" */
+        grid-template-columns: 1fr; /* Fuerza una sola columna */
+    }
+
+    .section-title {
+        font-size: 1.8em; /* Títulos de sección más pequeños */
+    }
+
+    /* Ajustes específicos para "Sobre Nosotros" en móvil (ya tenías algunos) */
+    .steven-intro .profile-image {
+        max-width: 200px; /* Imagen de perfil más pequeña */
+    }
+
+    /* Ajustes para el Footer en móvil */
+    .footer-container {
+        flex-direction: column; /* Apila las columnas del footer */
+        text-align: center; /* Centra el texto en las columnas apiladas */
+    }
+    .footer-column {
+        min-width: 100%; /* Para que ocupen todo el ancho */
+        margin-bottom: 30px;
+    }
+    .footer-column:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Para móviles muy pequeños (opcional, ej. <= 480px) */
+@media (max-width: 480px) {
+    .hero-slide h1 {
+        font-size: 1.8em;
+    }
+    .hero-slide h2 {
+        font-size: 1.2em;
+    }
+    /* Más ajustes finos si son necesarios */
+}
+
+/* --- Footer Styles --- */
+/* ... (tus estilos de .site-footer, .footer-column, etc. que ya tenías) ... */
+
+.copyright-text {
+    font-size: 13px; /* Podrías ajustar el tamaño si quieres */
+    line-height: 1.5;
+    margin-bottom: 10px; /* Espacio entre el copyright y tu crédito */
+}
+
+.developer-credit {
+    font-size: 12px; /* Un poco más pequeño */
+    line-height: 1.5;
+    color: #AAAAAA; /* Un gris un poco más sutil que el texto principal del footer */
+}
+
+.developer-credit a {
+    color: #CCCCCC; /* Color del enlace (tu nombre) */
+    text-decoration: none; /* Sin subrayado por defecto */
+    transition: color 0.3s ease;
+}
+
+.developer-credit a:hover {
+    color: #FFFFFF; /* El enlace se vuelve blanco al pasar el mouse */
+    text-decoration: underline; /* Subrayado en hover */
+}
+
+.developer-credit strong {
+    font-weight: 600; /* Asegura que sea suficientemente 'bold' */
 }
