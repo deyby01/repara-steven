@@ -173,7 +173,7 @@ a {
 }
 
 .hero-slide {
-    min-height: 70vh; /* Altura mínima, ocupa el 70% de la altura de la ventana. Ajusta según gusto. */
+    min-height: 60vh; /* Altura mínima, ocupa el 70% de la altura de la ventana. Ajusta según gusto. */
     /* O podrías usar una altura fija: min-height: 500px; */
     display: flex; /* Para centrar el contenido vertical y horizontalmente */
     align-items: center; /* Centra verticalmente */
@@ -205,7 +205,7 @@ a {
 
 .hero-slide h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3.0em; /* Tamaño grande para el H1. Ajusta según veas. */
+    font-size: 2.2em; /* Tamaño grande para el H1. Ajusta según veas. */
     font-weight: 700; /* Bold */
     color: #FFFFFF;
     margin-bottom: 0.3em;
@@ -214,7 +214,7 @@ a {
 
 .hero-slide h2 { /* Para el subtítulo "Especialistas Apple..." */
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.8em;
+    font-size: 1.4em;
     font-weight: 500; /* Medium o SemiBold */
     color: #E0E0E0; /* Un blanco un poco menos brillante que el H1 */
     margin-bottom: 0.8em;
@@ -223,7 +223,7 @@ a {
 
 .hero-slide p {
     font-family: 'Inter', sans-serif;
-    font-size: 1.1em;
+    font-size: 1em;
     color: #D0D0D0; /* Un gris claro */
     margin-bottom: 1.5em;
     max-width: 600px; /* Limita el ancho del párrafo */
@@ -450,6 +450,12 @@ a {
     /* Ajusta para 3 o 4 columnas en desktop, o auto-fit como antes */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px; /* Espacio entre los items de producto */
+}
+
+@media (min-width: 768px) { /* Aplica a partir de 768px */
+    .product-detail-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .product-item-teaser {
@@ -1045,10 +1051,15 @@ a {
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     overflow: hidden; /* Para que el iframe respete el borde redondeado */
+    position: relative;
+    width: 100%;
 }
 
 .map-container iframe {
     display: block; /* Elimina espacio extra debajo del iframe */
+    width: 100%;
+    height: 350px;
+    border: 0;
 }
 
 /* --- Contact Form Styles --- */
