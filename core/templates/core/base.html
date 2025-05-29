@@ -7,6 +7,8 @@
     <title>{% block title %}ReparaSteven{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    {# SplideJS CSS #}
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
 </head>
 <body>
     <header class="site-header">
@@ -68,6 +70,12 @@
             </div>
         </div>
     </footer>
+    
     <script src="{% static 'js/main.js' %}"></script>
+    {# SplideJS JS #}
+    <script src="http://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    {# Nuestro JS para inicializar Splide (lo crearemos) #}
+    <script src="{% static 'js/carousel.js' %}"></script> 
+
 </body>
 </html>

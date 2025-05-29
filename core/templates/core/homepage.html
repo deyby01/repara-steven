@@ -7,27 +7,43 @@
     {# Aquí es donde irá todo el contenido específico de la página de inicio #}
     {# Empezaremos con la estructura del Hero Section (Carrusel) #}
 
-    <section class="hero-section">
-        {# Contenido del Carrusel irá aquí - por ahora un placeholder #}
-        {# SLIDE 1 (Ejemplo de estructura) #}
-        <div class="hero-slide" id="slide1">
-            {# Aquí podrías poner una imagen de fondo con CSS más adelante #}
-            <div class="container">
-                <h1>REPARASTEVEN</h1>
-                <h2>Especialistas Apple en O'Higgins</h2>
-                <p>Soluciones de alto rendimiento y confianza para todos tus dispositivos Apple.</p>
-                <a href="#" class="btn btn-primary">Ver Servicios de Reparación</a> {# Usaremos clases para los botones #}
-            </div>
-        </div>
+    <section class="hero-section splide" aria-label="Carrusel de bienvenida ReparaSteven">
+        <div class="splide__track">
+            <ul class="splide__list">
+                {# SLIDE 1 #}
+                <li class="splide__slide hero-slide" id="slide1" 
+                    style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{% static 'images/hero-bg.jpg' %}');"> {# Asumiendo que tienes esta imagen #}
+                    <div class="container">
+                        <h1>REPARASTEVEN</h1>
+                        <h2>Especialistas Apple en O'Higgins</h2>
+                        <p>Soluciones de alto rendimiento y confianza para todos tus dispositivos Apple.</p>
+                        <a href="{% url 'core:reparaciones' %}" class="btn btn-primary">Ver Servicios de Reparación</a>
+                    </div>
+                </li>
 
-        {# SLIDE 2 (Placeholder) #}
-        <div class="hero-slide" id="slide2" style="background-color: #f0f0f0; color: #333; text-align: center; padding: 100px 20px;">
-            <div class="container">
-                <h1>Encuentra tu Próximo Dispositivo Apple</h1>
-                <p>Equipos seminuevos, reacondicionados y nuevos. Calidad garantizada.</p>
-                <a href="{% url 'tienda:lista_equipos' %}" class="btn btn-secondary">Explorar Equipos en Venta</a>
-            </div>
-        </div> 
+                {# SLIDE 2 (Equipos en Venta) #}
+                <li class="splide__slide hero-slide" id="slide2" 
+                    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('{% static 'images/hero-bg-store.jpg' %}');"> {# Necesitarás otra imagen de fondo #}
+                    <div class="container">
+                        <h1>Encuentra tu Próximo Apple</h1>
+                        <h2>Equipos Seleccionados y Garantizados</h2>
+                        <p>Descubre nuestra variedad de iPhones, Macs y iPads seminuevos y reacondicionados.</p>
+                        <a href="{% url 'tienda:lista_equipos' %}" class="btn btn-primary">Explorar Equipos</a>
+                    </div>
+                </li>
+
+                {# SLIDE 3 (Confianza / #1 en O'Higgins) #}
+                <li class="splide__slide hero-slide" id="slide3"
+                    style="background-image: linear-gradient(rgba(20,20,20,0.7), rgba(20,20,20,0.7)), url('{% static 'images/hero-bg-trust.jpg' %}');"> {# Otra imagen de fondo #}
+                    <div class="container">
+                        <h1>#1 en Servicio Apple</h1>
+                        <h2>Confianza y Experiencia en la Región de O'Higgins</h2>
+                        <p>Conoce por qué somos líderes y la dedicación de Steven Piedrahita, tu técnico instructor.</p>
+                        <a href="{% url 'core:sobre_nosotros' %}" class="btn btn-secondary">Sobre Nosotros</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </section>
 
     <section class="why-choose-us section-padding">

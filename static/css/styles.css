@@ -62,6 +62,12 @@ a {
     display: block; /* Evita espacio extra debajo de la imagen */
 }
 
+.hero-slide .container {
+    position: relative; /* Para asegurar que el z-index funcione si es necesario */
+    z-index: 2; /* Para que el contenido esté por encima de las flechas si se superponen */
+    /* max-width: 800px; ya lo tenías */
+}
+
 .main-navigation ul {
     list-style: none; /* Quita los puntos de la lista */
     margin: 0;
